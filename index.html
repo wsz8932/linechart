@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>入境旅客人數統計</title>
+
+     <style type="text/css">
+
+.highcharts-figure,
+.highcharts-data-table table {
+  min-width: 310px;
+  max-width: 800px;
+  margin: 1em auto;
+}
+
+.highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+  padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+
+
+     </style>
+
+</head>
+<body>
+	
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<figure class="highcharts-figure">
+  <div id="container"></div>
+  <p class="highcharts-description">
+    包含台灣以及周邊國家都因為covid-19疫情影響在2020後旅遊入境人數持續下滑
+  </p>
+</figure>
+
+	<script type="text/javascript">
+
+		Highcharts.chart('container', {
+  chart: {
+    type: 'spline'
+  },
+  title: {
+    text: '2016~2021年台灣、日本、韓國入境旅客統計'
+  },
+  subtitle: {
+    text: 'https://www.unwto.org/'
+  },
+  xAxis: {
+    categories: ['2016', '2017', '2018', '2019', '2020', '2021',
+     ],
+    accessibility: {
+      description: 'Months of the year'
+    }
+  },
+  yAxis: {
+    title: {
+      text: '入境旅客人數'
+    },
+    labels: {
+      formatter: function () {
+        return this.value + '人';
+      }
+    }
+  },
+  tooltip: {
+    crosshairs: true,
+    shared: true
+  },
+  plotOptions: {
+    spline: {
+      marker: {
+        radius: 4,
+        lineColor: '#666666',
+        lineWidth: 1
+      }
+    }
+  },
+  series: [{
+    name: '台灣',
+    marker: {
+      symbol: 'square'
+    },
+    data: [10.7,10.7,11.1,11.9,1.4,0.1
+]
+
+  }, {
+    name: '日本',
+    marker: {
+      symbol: 'diamond'
+    },
+    data: [24,28.7,31.2,31.9,4.1,0.2
+]
+  },
+
+
+  {
+    name: '韓國',
+    marker: {
+      symbol: 'circle'
+    },
+    data: [17.2,13.3,15.3,17.5,2.5,1
+
+]
+  }]
+});
+
+
+
+	</script>
+
+
+      
+
+
+
+</body>
+</html>
